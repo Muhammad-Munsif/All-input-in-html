@@ -1,38 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Input Fields Demo</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-   
-  </style>
-</head>
-<body>
-
-  <label for="name">First Name:</label>
-  <input type="text" id="nameInput" placeholder="Enter your first name">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Fields Demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <style></style>
+  </head>
+  <body>
+    <label for="name">First Name:</label>
+    <input type="text" id="nameInput" placeholder="Enter your first name" />
 
     <label for="lastname">Last Name:</label>
-  <input type="text" id="nameInput" placeholder="Enter your last name">
+    <input type="text" id="nameInput" placeholder="Enter your last name" />
 
-  <label for="email">Email:</label>
-  <input type="email" id="emailInput" placeholder="Enter your email">
+    <label for="email">Email:</label>
+    <input type="email" id="emailInput" placeholder="Enter your email" />
 
-  <label for="password">Password:</label>
-  <input type="password" id="passwordInput" placeholder="Enter your password">
-  
-  <label for="cpassword">Confrim Password:</label>
-  <input type="password" id="passwordInput" placeholder="Enter your confrim password">
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Enter your password"
+    />
 
-  <label for="file">Upload File:</label>
-  <input type="file" id="fileInput">
+    <label for="cpassword">Confrim Password:</label>
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Enter your confrim password"
+    />
+    <!-- ...existing code... -->
 
-  <input type="submit" id="submitBtn" value="Submit">
-  <input type="reset" id="resetBtn" value="reset">
+    <label for="country">Country:</label>
+    <select id="country">
+      <option value="">Select your country</option>
+      <option value="usa">United States</option>
+      <option value="uk">United Kingdom</option>
+      <option value="india">India</option>
+      <option value="canada">Canada</option>
+    </select>
+    <label for="file">Upload File:</label>
+    <input type="file" id="fileInput" />
 
-  <script src="script.js"></script>
+    <input type="submit" id="submitBtn" value="Submit" />
+    <input type="reset" id="resetBtn" value="reset" />
 
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
