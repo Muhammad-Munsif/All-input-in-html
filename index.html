@@ -1,95 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
-    
-</head>
-<body>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Create Your Account</h1>
-            <p>Join our community today by filling out the form below</p>
+      <div class="header">
+        <h1>Create Your Account</h1>
+        <p>Join our community today by filling out the form below</p>
+      </div>
+
+      <div class="form-container">
+        <div class="input-group">
+          <div class="input-pair">
+            <div class="input">
+              <label for="nameInput">First Name:</label>
+              <input
+                type="text"
+                id="nameInput"
+                placeholder="Enter your first name"
+              />
+              <div class="error" id="nameError">
+                Please enter a valid first name
+              </div>
+            </div>
+
+            <div class="input">
+              <label for="lastnameInput">Last Name:</label>
+              <input
+                type="text"
+                id="lastnameInput"
+                placeholder="Enter your last name"
+              />
+              <div class="error" id="lastnameError">
+                Please enter a valid last name
+              </div>
+            </div>
+          </div>
+
+          <div class="input-pair">
+            <div class="input">
+              <label for="emailInput">Email:</label>
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="Enter your email"
+              />
+              <div class="error" id="emailError">
+                Please enter a valid email address
+              </div>
+            </div>
+
+            <div class="input">
+              <label for="phoneInput">Phone No:</label>
+              <input
+                type="tel"
+                id="phoneInput"
+                placeholder="Enter your number"
+              />
+              <div class="error" id="phoneError">
+                Please enter a valid phone number
+              </div>
+            </div>
+          </div>
+
+          <div class="input-pair">
+            <div class="input">
+              <label for="passwordInput">Password:</label>
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter your password"
+              />
+              <div class="password-strength" id="passwordStrength"></div>
+              <div class="error" id="passwordError">
+                Password must be at least 8 characters
+              </div>
+            </div>
+
+            <div class="input">
+              <label for="cpasswordInput">Confirm Password:</label>
+              <input
+                type="password"
+                id="cpasswordInput"
+                placeholder="Confirm your password"
+              />
+              <div class="error" id="cpasswordError">
+                Passwords do not match
+              </div>
+            </div>
+          </div>
+
+          <div class="input">
+            <label for="country">Country:</label>
+            <select id="country">
+              <option value="">Select your country</option>
+              <option value="usa">United States</option>
+              <option value="uk">United Kingdom</option>
+              <option value="india">India</option>
+              <option value="canada">Canada</option>
+              <option value="australia">Australia</option>
+              <option value="germany">Germany</option>
+            </select>
+            <div class="error" id="countryError">Please select a country</div>
+          </div>
+
+          <div class="input">
+            <label for="fileInput">Upload Profile Picture:</label>
+            <input type="file" id="fileInput" accept="image/*" />
+            <div class="error" id="fileError">
+              Please select a file to upload
+            </div>
+          </div>
         </div>
-        
-        <div class="form-container">
-            <div class="input-group">
-                <div class="input-pair">
-                    <div class="input">
-                        <label for="nameInput">First Name:</label>
-                        <input type="text" id="nameInput" placeholder="Enter your first name" />
-                        <div class="error" id="nameError">Please enter a valid first name</div>
-                    </div>
-                    
-                    <div class="input">
-                        <label for="lastnameInput">Last Name:</label>
-                        <input type="text" id="lastnameInput" placeholder="Enter your last name" />
-                        <div class="error" id="lastnameError">Please enter a valid last name</div>
-                    </div>
-                </div>
-                
-                <div class="input-pair">
-                    <div class="input">
-                        <label for="emailInput">Email:</label>
-                        <input type="email" id="emailInput" placeholder="Enter your email" />
-                        <div class="error" id="emailError">Please enter a valid email address</div>
-                    </div>
-                    
-                    <div class="input">
-                        <label for="phoneInput">Phone No:</label>
-                        <input type="tel" id="phoneInput" placeholder="Enter your number" />
-                        <div class="error" id="phoneError">Please enter a valid phone number</div>
-                    </div>
-                </div>
-                
-                <div class="input-pair">
-                    <div class="input">
-                        <label for="passwordInput">Password:</label>
-                        <input type="password" id="passwordInput" placeholder="Enter your password" />
-                        <div class="password-strength" id="passwordStrength"></div>
-                        <div class="error" id="passwordError">Password must be at least 8 characters</div>
-                    </div>
-                    
-                    <div class="input">
-                        <label for="cpasswordInput">Confirm Password:</label>
-                        <input type="password" id="cpasswordInput" placeholder="Confirm your password" />
-                        <div class="error" id="cpasswordError">Passwords do not match</div>
-                    </div>
-                </div>
-                
-                <div class="input">
-                    <label for="country">Country:</label>
-                    <select id="country">
-                        <option value="">Select your country</option>
-                        <option value="usa">United States</option>
-                        <option value="uk">United Kingdom</option>
-                        <option value="india">India</option>
-                        <option value="canada">Canada</option>
-                        <option value="australia">Australia</option>
-                        <option value="germany">Germany</option>
-                    </select>
-                    <div class="error" id="countryError">Please select a country</div>
-                </div>
-                
-                <div class="input">
-                    <label for="fileInput">Upload Profile Picture:</label>
-                    <input type="file" id="fileInput" accept="image/*" />
-                    <div class="error" id="fileError">Please select a file to upload</div>
-                </div>
-            </div>
-            
-            <div class="button-group">
-                <input type="submit" id="submitBtn" value="Create Account" />
-                <input type="reset" id="resetBtn" value="Clear Form" />
-            </div>
-            
-            <div class="success-message" id="successMessage">
-                <strong>Success!</strong> Your account has been created successfully.
-            </div>
+
+        <div class="button-group">
+          <input type="submit" id="submitBtn" value="Create Account" />
+          <input type="reset" id="resetBtn" value="Clear Form" />
         </div>
+
+        <div class="success-message" id="successMessage">
+          <strong>Success!</strong> Your account has been created successfully.
+        </div>
+      </div>
     </div>
 
-   
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
