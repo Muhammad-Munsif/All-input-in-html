@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Fields Demo</title>
+    <style>
+      /* CSS Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 600px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        margin: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2c3e50;
+        font-weight: 600;
+      }
+
+      .input {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="number"],
+      input[type="password"],
+      select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="number"]:focus,
+      input[type="password"]:focus,
+      select:focus {
+        border-color: #3498db;
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        outline: none;
+      }
+
+      input[type="file"] {
+        width: 100%;
+        padding: 10px 0;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        background-color: #3498db;
+        color: white;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #2980b9;
+      }
+
+      input[type="reset"] {
+        background-color: #e74c3c;
+        color: white;
+      }
+
+      input[type="reset"]:hover {
+        background-color: #c0392b;
+      }
+
+      .error {
+        color: #e74c3c;
+        font-size: 14px;
+        margin-top: 5px;
+        display: none;
+      }
+
+      .success-message {
+        background-color: #2ecc71;
+        color: white;
+        padding: 15px;
+        border-radius: 6px;
+        text-align: center;
+        margin-top: 20px;
+        display: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+          margin: 10px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        select {
+          padding: 10px 12px;
+          font-size: 16px; /* Prevents zoom on iOS */
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+          padding: 12px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        .container {
+          padding: 15px;
+        }
+
+        h1 {
+          font-size: 22px;
+          margin-bottom: 20px;
+        }
+
+        .input {
+          margin-bottom: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Registration Form</h1>
+
+      <div class="input">
+        <label for="nameInput">First Name:</label>
+        <input type="text" id="nameInput" placeholder="Enter your first name" />
+        <div class="error" id="nameError">Please enter a valid first name</div>
+      </div>
+
+      <div class="input">
+        <label for="lastnameInput">Last Name:</label>
+        <input
+          type="text"
+          id="lastnameInput"
+          placeholder="Enter your last name"
+        />
+        <div class="error" id="lastnameError">
+          Please enter a valid last name
+        </div>
+      </div>
+
+      <div class="input">
+        <label for="emailInput">Email:</label>
+        <input type="email" id="emailInput" placeholder="Enter your email" />
+        <div class="error" id="emailError">
+          Please enter a valid email address
+        </div>
+      </div>
+
+      <div class="input">
+        <label for="phoneInput">Phone No:</label>
+        <input type="tel" id="phoneInput" placeholder="Enter your number" />
+        <div class="error" id="phoneError">
+          Please enter a valid phone number
+        </div>
+      </div>
+
+      <div class="input">
+        <label for="passwordInput">Password:</label>
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter your password"
+        />
+        <div class="error" id="passwordError">
+          Password must be at least 8 characters
+        </div>
+      </div>
+
+      <div class="input">
+        <label for="cpasswordInput">Confirm Password:</label>
+        <input
+          type="password"
+          id="cpasswordInput"
+          placeholder="Enter your confirm password"
+        />
+        <div class="error" id="cpasswordError">Passwords do not match</div>
+      </div>
+
+      <div class="input">
+        <label for="country">Country:</label>
+        <select id="country">
+          <option value="">Select your country</option>
+          <option value="usa">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="india">India</option>
+          <option value="canada">Canada</option>
+        </select>
+        <div class="error" id="countryError">Please select a country</div>
+      </div>
+
+      <div class="input">
+        <label for="fileInput">Upload File:</label>
+        <input type="file" id="fileInput" />
+        <div class="error" id="fileError">Please select a file to upload</div>
+      </div>
+
+      <div class="input">
+        <input type="submit" id="submitBtn" value="Submit" />
+      </div>
+
+      <div class="input">
+        <input type="reset" id="resetBtn" value="Reset" />
+      </div>
+
+      <div class="success-message" id="successMessage">
+        Form submitted successfully!
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get form elements
+        const form = document.querySelector(".container");
+        const firstNameInput = document.getElementById("nameInput");
+        const lastNameInput = document.getElementById("lastnameInput");
+        const emailInput = document.getElementById("emailInput");
+        const phoneInput = document.getElementById("phoneInput");
+        const passwordInput = document.getElementById("passwordInput");
+        const confirmPasswordInput = document.getElementById("cpasswordInput");
+        const countrySelect = document.getElementById("country");
+        const fileInput = document.getElementById("fileInput");
+        const submitBtn = document.getElementById("submitBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const successMessage = document.getElementById("successMessage");
+
+        // Error elements
+        const nameError = document.getElementById("nameError");
+        const lastnameError = document.getElementById("lastnameError");
+        const emailError = document.getElementById("emailError");
+        const phoneError = document.getElementById("phoneError");
+        const passwordError = document.getElementById("passwordError");
+        const cpasswordError = document.getElementById("cpasswordError");
+        const countryError = document.getElementById("countryError");
+        const fileError = document.getElementById("fileError");
+
+        // Validation functions
+        function validateName(name) {
+          return /^[A-Za-z]{2,}$/.test(name.trim());
+        }
+
+        function validateEmail(email) {
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return re.test(email.trim());
+        }
+
+        function validatePhone(phone) {
+          return /^[\d\s\-\(\)\+]{10,}$/.test(phone.trim());
+        }
+
+        function validatePassword(password) {
+          return password.length >= 8;
+        }
+
+        function validateCountry(country) {
+          return country !== "";
+        }
+
+        function validateFile(file) {
+          return file.files.length > 0;
+        }
+
+        // Real-time validation
+        firstNameInput.addEventListener("blur", function () {
+          if (!validateName(this.value)) {
+            nameError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            nameError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        lastNameInput.addEventListener("blur", function () {
+          if (!validateName(this.value)) {
+            lastnameError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            lastnameError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        emailInput.addEventListener("blur", function () {
+          if (!validateEmail(this.value)) {
+            emailError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            emailError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        phoneInput.addEventListener("blur", function () {
+          if (!validatePhone(this.value)) {
+            phoneError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            phoneError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        passwordInput.addEventListener("blur", function () {
+          if (!validatePassword(this.value)) {
+            passwordError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            passwordError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        confirmPasswordInput.addEventListener("blur", function () {
+          if (this.value !== passwordInput.value) {
+            cpasswordError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            cpasswordError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        countrySelect.addEventListener("change", function () {
+          if (!validateCountry(this.value)) {
+            countryError.style.display = "block";
+            this.style.borderColor = "#e74c3c";
+          } else {
+            countryError.style.display = "none";
+            this.style.borderColor = "#2ecc71";
+          }
+        });
+
+        fileInput.addEventListener("change", function () {
+          if (!validateFile(this)) {
+            fileError.style.display = "block";
+          } else {
+            fileError.style.display = "none";
+          }
+        });
+
+        // Form submission
+        submitBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          let isValid = true;
+
+          // Validate all fields
+          if (!validateName(firstNameInput.value)) {
+            nameError.style.display = "block";
+            firstNameInput.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (!validateName(lastNameInput.value)) {
+            lastnameError.style.display = "block";
+            lastNameInput.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (!validateEmail(emailInput.value)) {
+            emailError.style.display = "block";
+            emailInput.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (!validatePhone(phoneInput.value)) {
+            phoneError.style.display = "block";
+            phoneInput.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (!validatePassword(passwordInput.value)) {
+            passwordError.style.display = "block";
+            passwordInput.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (confirmPasswordInput.value !== passwordInput.value) {
+            cpasswordError.style.display = "block";
+            confirmPasswordInput.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (!validateCountry(countrySelect.value)) {
+            countryError.style.display = "block";
+            countrySelect.style.borderColor = "#e74c3c";
+            isValid = false;
+          }
+
+          if (!validateFile(fileInput)) {
+            fileError.style.display = "block";
+            isValid = false;
+          }
+
+          // If all valid, show success message
+          if (isValid) {
+            successMessage.style.display = "block";
+            setTimeout(() => {
+              successMessage.style.display = "none";
+            }, 5000);
+
+            // In a real application, you would submit the form data here
+            console.log("Form submitted successfully!");
+            console.log({
+              firstName: firstNameInput.value,
+              lastName: lastNameInput.value,
+              email: emailInput.value,
+              phone: phoneInput.value,
+              country: countrySelect.value,
+              file: fileInput.files[0]?.name,
+            });
+          }
+        });
+
+        // Reset form
+        resetBtn.addEventListener("click", function () {
+          // Hide all error messages
+          const errorElements = document.querySelectorAll(".error");
+          errorElements.forEach((error) => {
+            error.style.display = "none";
+          });
+
+          // Reset border colors
+          const inputs = document.querySelectorAll("input, select");
+          inputs.forEach((input) => {
+            input.style.borderColor = "#ddd";
+          });
+
+          // Hide success message
+          successMessage.style.display = "none";
+        });
+      });
+    </script>
+  </body>
+</html>
