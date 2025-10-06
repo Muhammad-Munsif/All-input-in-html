@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Get form elements
-  const form = document.querySelector(".container");
   const firstNameInput = document.getElementById("nameInput");
   const lastNameInput = document.getElementById("lastnameInput");
   const emailInput = document.getElementById("emailInput");
@@ -12,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitBtn = document.getElementById("submitBtn");
   const resetBtn = document.getElementById("resetBtn");
   const successMessage = document.getElementById("successMessage");
+  const passwordStrength = document.getElementById("passwordStrength");
 
   // Error elements
   const nameError = document.getElementById("nameError");
@@ -39,6 +39,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function validatePassword(password) {
     return password.length >= 8;
+  }
+
+  function checkPasswordStrength(password) {
+    let strength = 0;
+
+    // Length check
+    if (password.length >= 8) strength++;
+
+    // Contains lowercase
+    if (/[a-z]/.test(password)) strength++;
+
+    // Contains uppercase
+    if (/[A-Z]/.test(password)) strength++;
+
+    // Contains numbers
+    if (/[0-9]/.test(password)) strength++;
+
+    // Contains special characters
+    if (/[^A-Za-z0-9]/.test(password)) strength++;
+
+    return strength;
+  }
+
+  function updatePasswordStrength() {
+    const password = passwordInput.value;
+    const strength = checkPasswordStrength(password);
+
+    // Reset
+    passwordStrength.className = "password-strength";
+
+    if (password.length === 0) {
+      passwordStrength.style.width = "0";
+      return;
+    }
+
+    if (strength < 3) {
+      passwordStrength.className += " strength-weak";
+    } else if (strength < 5) {
+      passwordStrength.className += " strength-medium";
+    } else {
+      passwordStrength.className += " strength-strong";
+    }
   }
 
   function validateCountry(country) {
@@ -89,6 +131,8 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
+
+  passwordInput.addEventListener("input", updatePasswordStrength);
 
   passwordInput.addEventListener("blur", function () {
     if (!validatePassword(this.value)) {
@@ -185,9 +229,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // If all valid, show success message
     if (isValid) {
       successMessage.style.display = "block";
-      setTimeout(() => {
-        successMessage.style.display = "none";
-      }, 5000);
+
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: "smooth" });
 
       // In a real application, you would submit the form data here
       console.log("Form submitted successfully!");
@@ -199,11 +243,17 @@ document.addEventListener("DOMContentLoaded", function () {
         country: countrySelect.value,
         file: fileInput.files[0]?.name,
       });
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        resetForm();
+        successMessage.style.display = "none";
+      }, 5000);
     }
   });
 
   // Reset form
-  resetBtn.addEventListener("click", function () {
+  function resetForm() {
     // Hide all error messages
     const errorElements = document.querySelectorAll(".error");
     errorElements.forEach((error) => {
@@ -213,10 +263,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset border colors
     const inputs = document.querySelectorAll("input, select");
     inputs.forEach((input) => {
-      input.style.borderColor = "#ddd";
+      input.style.borderColor = "#e0e0e0";
     });
+
+    // Reset password strength indicator
+    passwordStrength.style.width = "0";
 
     // Hide success message
     successMessage.style.display = "none";
-  });
+  }
+
+  resetBtn.addEventListener("click", resetForm);
 });
