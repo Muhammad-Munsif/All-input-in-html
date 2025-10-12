@@ -259,19 +259,15 @@ document.addEventListener("DOMContentLoaded", function () {
     errorElements.forEach((error) => {
       error.style.display = "none";
     });
-
     // Reset border colors
     const inputs = document.querySelectorAll("input, select");
     inputs.forEach((input) => {
       input.style.borderColor = "#e0e0e0";
     });
-
     // Reset password strength indicator
     passwordStrength.style.width = "0";
-
     // Hide success message
     successMessage.style.display = "none";
   }
-
   resetBtn.addEventListener("click", resetForm);
 });
