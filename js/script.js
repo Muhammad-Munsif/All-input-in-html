@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const resetBtn = document.getElementById("resetBtn");
   const successMessage = document.getElementById("successMessage");
   const passwordStrength = document.getElementById("passwordStrength");
-
   // Error elements
   const nameError = document.getElementById("nameError");
   const lastnameError = document.getElementById("lastnameError");
@@ -22,58 +21,44 @@ document.addEventListener("DOMContentLoaded", function () {
   const cpasswordError = document.getElementById("cpasswordError");
   const countryError = document.getElementById("countryError");
   const fileError = document.getElementById("fileError");
-
   // Validation functions
   function validateName(name) {
     return /^[A-Za-z]{2,}$/.test(name.trim());
   }
-
   function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email.trim());
   }
-
   function validatePhone(phone) {
     return /^[\d\s\-\(\)\+]{10,}$/.test(phone.trim());
   }
-
   function validatePassword(password) {
     return password.length >= 8;
   }
-
   function checkPasswordStrength(password) {
     let strength = 0;
-
     // Length check
     if (password.length >= 8) strength++;
-
     // Contains lowercase
     if (/[a-z]/.test(password)) strength++;
-
     // Contains uppercase
     if (/[A-Z]/.test(password)) strength++;
-
     // Contains numbers
     if (/[0-9]/.test(password)) strength++;
-
     // Contains special characters
     if (/[^A-Za-z0-9]/.test(password)) strength++;
-
     return strength;
   }
 
   function updatePasswordStrength() {
     const password = passwordInput.value;
     const strength = checkPasswordStrength(password);
-
     // Reset
     passwordStrength.className = "password-strength";
-
     if (password.length === 0) {
       passwordStrength.style.width = "0";
       return;
     }
-
     if (strength < 3) {
       passwordStrength.className += " strength-weak";
     } else if (strength < 5) {
