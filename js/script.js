@@ -86,11 +86,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function validateCountry(country) {
     return country !== "";
   }
-
   function validateFile(file) {
     return file.files.length > 0;
   }
-
   // Real-time validation
   firstNameInput.addEventListener("blur", function () {
     if (!validateName(this.value)) {
@@ -101,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   lastNameInput.addEventListener("blur", function () {
     if (!validateName(this.value)) {
       lastnameError.style.display = "block";
@@ -111,7 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   emailInput.addEventListener("blur", function () {
     if (!validateEmail(this.value)) {
       emailError.style.display = "block";
@@ -121,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   phoneInput.addEventListener("blur", function () {
     if (!validatePhone(this.value)) {
       phoneError.style.display = "block";
@@ -131,9 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   passwordInput.addEventListener("input", updatePasswordStrength);
-
   passwordInput.addEventListener("blur", function () {
     if (!validatePassword(this.value)) {
       passwordError.style.display = "block";
@@ -143,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   confirmPasswordInput.addEventListener("blur", function () {
     if (this.value !== passwordInput.value) {
       cpasswordError.style.display = "block";
@@ -153,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   countrySelect.addEventListener("change", function () {
     if (!validateCountry(this.value)) {
       countryError.style.display = "block";
@@ -163,7 +154,6 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.borderColor = "#2ecc71";
     }
   });
-
   fileInput.addEventListener("change", function () {
     if (!validateFile(this)) {
       fileError.style.display = "block";
