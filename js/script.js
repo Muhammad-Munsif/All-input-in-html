@@ -175,64 +175,52 @@ document.addEventListener("DOMContentLoaded", function () {
   // Form submission
   submitBtn.addEventListener("click", function (e) {
     e.preventDefault();
-
     let isValid = true;
-
     // Validate all fields
     if (!validateName(firstNameInput.value)) {
       nameError.style.display = "block";
       firstNameInput.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (!validateName(lastNameInput.value)) {
       lastnameError.style.display = "block";
       lastNameInput.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (!validateEmail(emailInput.value)) {
       emailError.style.display = "block";
       emailInput.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (!validatePhone(phoneInput.value)) {
       phoneError.style.display = "block";
       phoneInput.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (!validatePassword(passwordInput.value)) {
       passwordError.style.display = "block";
       passwordInput.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (confirmPasswordInput.value !== passwordInput.value) {
       cpasswordError.style.display = "block";
       confirmPasswordInput.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (!validateCountry(countrySelect.value)) {
       countryError.style.display = "block";
       countrySelect.style.borderColor = "#e74c3c";
       isValid = false;
     }
-
     if (!validateFile(fileInput)) {
       fileError.style.display = "block";
       isValid = false;
     }
-
     // If all valid, show success message
     if (isValid) {
       successMessage.style.display = "block";
-
       // Scroll to success message
       successMessage.scrollIntoView({ behavior: "smooth" });
-
       // In a real application, you would submit the form data here
       console.log("Form submitted successfully!");
       console.log({
@@ -243,7 +231,6 @@ document.addEventListener("DOMContentLoaded", function () {
         country: countrySelect.value,
         file: fileInput.files[0]?.name,
       });
-
       // Reset form after 3 seconds
       setTimeout(() => {
         resetForm();
