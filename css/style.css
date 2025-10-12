@@ -44,32 +44,27 @@ body {
 .form-container {
   padding: 30px;
 }
-
 .input-group {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 20px;
 }
-
 .input-pair {
   display: flex;
   flex: 1 1 100%;
   gap: 15px;
 }
-
 .input {
   flex: 1;
   margin-bottom: 0;
 }
-
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
   color: #2c3e50;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="tel"],
@@ -82,7 +77,6 @@ select {
   font-size: 16px;
   transition: all 0.3s ease;
 }
-
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
@@ -92,18 +86,15 @@ select:focus {
   box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
   outline: none;
 }
-
 input[type="file"] {
   width: 100%;
   padding: 10px 0;
 }
-
 .button-group {
   display: flex;
   gap: 15px;
   margin-top: 25px;
 }
-
 input[type="submit"],
 input[type="reset"] {
   flex: 1;
@@ -115,36 +106,30 @@ input[type="reset"] {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 input[type="submit"] {
   background: linear-gradient(to right, #2ecc71, #27ae60);
   color: white;
 }
-
 input[type="submit"]:hover {
   background: linear-gradient(to right, #27ae60, #219653);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(39, 174, 96, 0.4);
 }
-
 input[type="reset"] {
   background: linear-gradient(to right, #e74c3c, #c0392b);
   color: white;
 }
-
 input[type="reset"]:hover {
   background: linear-gradient(to right, #c0392b, #a93226);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(192, 57, 43, 0.4);
 }
-
 .error {
   color: #e74c3c;
   font-size: 14px;
   margin-top: 5px;
   display: none;
 }
-
 .success-message {
   background: linear-gradient(to right, #2ecc71, #27ae60);
   color: white;
